@@ -13,21 +13,6 @@ getRank = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"]
 getAllPairs :: [String] -> [String] -> [String]
 getAllPairs xs zs = liftM2 (++) xs zs
 
---takeGameCards :: Int -> [String] -> (String, [String])
---takeGameCards n xs =
---  let arr = hh
---  in  (head arr, tail arr)
---    where hh = take n xs
-
---takeGameCards n cardPairs = splitFromShuffleResult $ shuffle n cardPairs []
---  where splitFromShuffleResult :: [String] -> (String, [String])
---        splitFromShuffleResult (x:xss) = (x, xss)
---        shuffle :: Int -> [String] -> [String]
---        shuffle 0 _ res               = res
---        shuffle n xs acc              =
---          let (a, b)  = (xs!!4, (take 4 xs) ++ (drop 5 xs))
---          in  shuffle (n - 1) b (acc ++ a)
-
 pickCards :: [Int] -> [String] -> [String]
 pickCards pick cards = aggregateCards pick cards []
   where aggregateCards [] _ res = res
