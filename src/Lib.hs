@@ -27,8 +27,11 @@ makeGameState (x:xs) = (x, xs)
 randomCards = [3, 5, 6, 12, 15, 40]
 
 solve :: (String, [String]) -> String
-solve (tableCard, playerCard) = "Yep"
+solve (tableCard, (x:xs))
+  | head tableCard == head x || last tableCard == last x = "YES"
+  | xs == [] = "NO"
+  | otherwise = solve (tableCard, xs)
 
 someFunc :: IO ()
-someFunc = (putStrLn . show) res
+someFunc = putStrLn $ solve res
     where res = makeGameState $ pickCards randomCards $ getAllPairs getSuit getRank
