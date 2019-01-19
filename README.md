@@ -75,3 +75,17 @@ Output:
 ```
 YES
 ```
+
+# Application usage
+
+For launch script:
+ 
+```
+stack solution-script.hs
+```
+
+for interactive program:
+
+```
+./run
+```
