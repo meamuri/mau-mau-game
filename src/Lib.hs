@@ -1,5 +1,5 @@
 module Lib
-    ( someFunc
+    ( solution
     ) where
 
 import Control.Monad
@@ -32,6 +32,13 @@ solve (tableCard, (x:xs))
   | xs == [] = "NO"
   | otherwise = solve (tableCard, xs)
 
-someFunc :: IO ()
-someFunc = putStrLn $ solve res
-    where res = makeGameState $ pickCards randomCards $ getAllPairs getSuit getRank
+getList :: IO [String]
+getList = do
+  line <- getLine
+  return $ words line
+
+solution :: IO ()
+solution = do
+    cardOnTable <- getLine
+    playerCards <- getList
+    putStrLn $ solve (cardOnTable, playerCards)
