@@ -37,8 +37,15 @@ getList = do
   line <- getLine
   return $ words line
 
+allPossiblePairs :: String
+allPossiblePairs = unwords $ getAllPairs getSuit getRank
+
 solution :: IO ()
 solution = do
+    putStrLn "Game must contains cards from next list:"
+    putStrLn allPossiblePairs
+    putStrLn "On table card:"
     cardOnTable <- getLine
+    putStrLn "Some cards of user:"
     playerCards <- getList
     putStrLn $ solve (cardOnTable, playerCards)
